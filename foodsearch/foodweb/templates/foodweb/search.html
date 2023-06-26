@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <style>  
+        body {
+            font-family: Arial;
+          }
+          
+          * {
+            box-sizing: border-box;
+          }
+          
+          form.example input[type=text] {
+            padding: 10px;
+            font-size: 17px;
+            border: 1px solid grey;
+            float: left;
+            width: 80%;
+            background: #f1f1f1;
+          }
+          
+          form.example button {
+            float: left;
+            width: 20%;
+            padding: 10px;
+            background: #2196F3;
+            color: white;
+            font-size: 17px;
+            border: 1px solid grey;
+            border-left: none;
+            cursor: pointer;
+          }
+          
+          form.example button:hover {
+            background: #0b7dda;
+          }
+          
+          form.example::after {
+            content: "";
+            clear: both;
+            display: table;
+          }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+        } 
+        .button:hover {
+            background: #0b7dda;
+          }
+          
+    </style>
+<head>
+    <title>Dish Search</title>
+</head>
+<body> 
+    <fieldset>
+        <legend><h1> Search Your Favorite Dish </h1> </legend>
+    <form method="GET" class="example">
+        <input type="text" name="query" value="{{ query }}" placeholder="Search for a dish">
+        <button type="submit">SEARCH</button>
+    </form>
+    <hr>
+    {% if dishes %}
+        <h2>Search Results:</h2>
+        <table >
+            <tr>
+              <th>DISH</th>
+              <th>PRIZE</th>
+            </tr>
+            {% for dish in dishes %} 
+
+            <tr>
+                <td>{{ dish.food }}</td> <td> {{dish.price}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    {% else %}
+        <p>No results found.</p>
+    {% endif %} 
+
+    <a href= "{% url 'Foodweb:allResturant' %} " class="button"> ALL REGISTERD RESTAURANTS </a> 
+    </fieldset>
+</body>
+</html>

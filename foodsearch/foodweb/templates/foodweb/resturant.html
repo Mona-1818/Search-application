@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dish Search</title>
+</head>
+<body> 
+    <fieldset>
+        <legend><h1>Available  Restaurants </h1></legend>
+    {% if res %}
+        <ul>
+            {% for i in res %}
+                <li><a href="{% url 'Foodweb:Menu' i.hotel_id%}">{{ i.hotel_name }} </a> </li>
+
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No results found.</p>
+    {% endif %} 
+    </fieldset>
+</body>
+</html>

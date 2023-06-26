@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Menu</title>
+</head>
+<body>
+  <fieldset>
+    <legend><h1>{{ menu.hotel_name }}</h1></legend>  
+    <ul>
+        <li> HOTEL LOCATION: {{ menu.hotel_location}} </li> 
+        <li> GEOGRAPHIC LOCATION: ({{ menu.hotel_langitude}},{{ menu.hotel_longitude}}) </li> 
+    </ul>
+    <hr>
+    <h1 style="margin-left: 200px; "> MENU </h1>
+    <div style="text-align: center;">
+    {% if error_message %}<p><strong>{{ error_message }}</strong></p>{% endif %}
+    <table >
+        <tr>
+          <th>DISH</th>
+          <th>PRIZE</th>
+        </tr>
+    {% for choice in menu.menus_set.all %}
+    <tr>
+        <td>{{ choice.food }}</td>
+        <td>{{ choice.price }}</td> 
+    </tr>
+    {% endfor %} 
+</table 
+</div>
+</fieldset>
+</html>
